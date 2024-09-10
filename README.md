@@ -9,3 +9,5 @@ whatever the current debian package is called.)
 *** Ubuntu 22.04 has issues with the most current beta: GameMaker-Beta-2024.800.0.618.deb that need to be resolved manually. While this script 
 will do some of the work, you'll need to install libvorbis-dev, uninstall ffmpeg, and manually install ffmpeg with ./configure --enable-libvorbis
 Thanks to @gnysek from the GameMaker community for this ***
+
+For the most current information see: https://help.gamemaker.io/hc/en-us/articles/235186168-Setting-Up-For-Ubuntu
