@@ -9,6 +9,8 @@
 
 # chaslinux@gmail.com - blame me for the script
 
+distro=$(cat /etc/lsb-release | grep CODENAME)
+
 # first, install any updates
 sudo apt update && sudo apt upgrade -y
 
@@ -28,3 +30,12 @@ sudo install -m 0755 linuxdeploy-x86_64.AppImage /usr/local/bin/linuxdeploy
 # AppImage
 wget https://github.com/AppImage/AppImageKit/releases/download/continuous/appimagetool-x86_64.AppImage
 sudo install -m 0755 appimagetool-x86_64.AppImage /usr/local/bin/appimagetool
+
+
+if [ $distro == "DISTRIB_CODENAME=noble" ]
+	then
+	sudo apt install pulseaudio -y
+	sudo /bin/su -c "echo 'kernel.apparmor_restrict_unprivileged_userns = 0' >> /etc/sysctl.conf"
+	sudo sysctl kernel.apparmor_restrict_unprivileged_userns=0
+	echo "You should reboot to allow some of the changes to take effect for 24.04."
+fi
