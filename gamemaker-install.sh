@@ -39,3 +39,7 @@ if [ $distro == "DISTRIB_CODENAME=noble" ]
 	sudo sysctl kernel.apparmor_restrict_unprivileged_userns=0
 	echo "You should reboot to allow some of the changes to take effect for 24.04."
 fi
+
+# New versions of *buntu and Linux Mint have switched to pipewire for audio, but GameMaker still needs pulseaudio 
+# for audio
+sudo apt install pulseaudio -y
